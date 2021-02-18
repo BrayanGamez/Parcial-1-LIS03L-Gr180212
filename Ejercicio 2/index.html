@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Amortizacion Calculadora</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <script src="js/Plazo.js"></script>
+    <script src="js/Calculos.js"></script>
+</head>
+<body>
+<div class="formulario">
+<h1>calculadora de tabla de amortización</h1>
+<form action="calcular.php" method="POST">
+    <label> sistema de amortización:</label>
+    <select id="amortizacion" name="amortización"  placeholder="Seleccione una opción" required>
+        <option value="sistemasimple" name="sistemasimple">Sistema simple: cuota, amortizacion e interés fijo</option>
+        <option value="sistemacompuesto" name="sistemacompuesto">Sistema compuesto: Interés sobre interés</option>
+    </select>
+<label>Fecha de desembolso (d/m/a): </label>
+<input type="number" name="dia" placeholder="Día" required><input type="number" name="mes" placeholder="Mes" required><input type="number" name="anio" placeholder="Año" required>
+<label> Importe del prestamo:</label>
+<input type="text" name="importe" placeholder="Escriba la cantidad" onkeypress="return filterFloat(event,this)" required>
+<label for="periodo">Periodo:</label>
+<select name="periodo" id="periodo" required>
+    <option value="diario" >Diario</option>
+    <option value="semanal" >Semanal</option>
+    <option value="Quincenal" >Quincenal</option>
+    <option value="mensual" >Mensual</option>
+    <option value="anual" >Anual</option>
+    
+  
+</select>
+<label for="interes" id="interes">interés diario:</label>
+<input type="text" name="interes_input" id="interes_input" onkeypress="return filterFloat(event,this)" placeholder="Ingrese el interés" required>
+<label for="plazo" id="plazo">Plazo diario:</label>
+<input type="text" name="plazo" onkeypress="return filterFloat(event,this)" placeholder="Ingrese el tiempo" required>
+<p>
+<input type="submit" class="enviar" value="Calcular" name="calcular">
+</form>
+</div>
+</body>
+</html>
